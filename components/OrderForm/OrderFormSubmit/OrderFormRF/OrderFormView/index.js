@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Button, Text, View, KeyboardAvoidingView } from 'react-native';
 
 import { connect } from 'react-redux';
 import { Field, reset } from 'redux-form';
@@ -14,7 +14,7 @@ const OrderFormView = ({
   submitting,
   valid 
 }) => (
-  <View>
+  <KeyboardAvoidingView >
     <Field
       name="firstName"
       component={RFTextInput}
@@ -65,7 +65,7 @@ const OrderFormView = ({
       onPress={handleSubmit}
       title="Submit Order"
     />
-  </View>    
+  </KeyboardAvoidingView >    
 ); 
 
 OrderFormView.propTypes = {
