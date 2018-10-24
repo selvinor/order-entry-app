@@ -10,17 +10,21 @@ const wait = () => new Promise((resolve) => {
 });
 
 class OrderForm extends Component {
-  handleSubmit = async ({ firstName, lastName, email, phone, description }) => {
+  handleSubmit = async ({ firstName, lastName, email, phone, product, description, message, price }) => {
 //    const { reset } = this.props;
     await wait();
 
     // throw new Error(); // TEST SUBMISSION ERROR
-
+console.log('form reducer state this.props.form: ', this.props.form);
     console.log(`firstname: ${firstName}`);
     console.log(`lastName: ${lastName}`);
     console.log(`email: ${email}`);
     console.log(`phone: ${phone}`);
+    console.log(`product: ${product}`);
     console.log(`description: ${description}`);
+    console.log(`message: ${message}`);
+    console.log(`price: ${price}`);
+
   reset();
   }
 
@@ -29,7 +33,11 @@ class OrderForm extends Component {
   }
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = state => {
+  return ({
+    form: state.form,
+  });
+}
 const mapDispatchToProps = {
   reset: () => reset('reset'),
 };

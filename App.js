@@ -1,14 +1,8 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import {  StyleSheet,  View } from 'react-native';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
 import OrderForm from './components/OrderForm';
-
-const rootReducer = combineReducers({
-  form: formReducer,
-});
-const store = createStore(rootReducer);
+import store from './store';
 
 class App extends React.Component {
   render() {
