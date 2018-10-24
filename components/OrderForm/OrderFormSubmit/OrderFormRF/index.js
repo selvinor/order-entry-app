@@ -2,7 +2,7 @@ import { reduxForm } from 'redux-form';
 import OrderFormView from './OrderFormView';
 
 const FORM = 'Order';
-const validate = ({ firstName, lastName }) => {
+const validate = ({ firstName, lastName, phone }) => {
   const errors = {};
   if (firstName === undefined) {
     errors.firstName = 'Required';
@@ -13,6 +13,11 @@ const validate = ({ firstName, lastName }) => {
     errors.lastName = 'Required';
   } else if (lastName.trim() === '') {
     errors.lastName = 'Must not be blank';
+  }
+  if (phone === undefined) {
+    errors.phone = 'Required';
+  } else if (phone.trim() === '') {
+    errors.phone = 'Must not be blank';
   }
   return errors;
 };

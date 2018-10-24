@@ -4,7 +4,7 @@ import { TextInput, Text, View  } from 'react-native';
 import styles from './styles';
 
 const RFTextInput = ({
-  input: { onBlur, onChange, onFocus, value, placeHolder },
+  input: { onBlur, onChange, onFocus, value },
   meta: { error, touched, valid },
   disabled,
 }) => ( 
@@ -17,7 +17,7 @@ const RFTextInput = ({
       style={[styles.rootInput, { borderColor: !valid && touched ? 'red' : 'gray' }]}
       editable={!disabled}
       selectTextOnFocus={!disabled}
-      placeholder={placeHolder}
+      //placeholder={placeholder}
       underlineColorAndroid='transparent'
       style={[
         styles.rootInput,

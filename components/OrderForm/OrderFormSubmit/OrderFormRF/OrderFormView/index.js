@@ -19,28 +19,28 @@ const OrderFormView = ({
       name="firstName"
       component={RFTextView}
       disabled={submitting}
-      placeHolder="First Name"
+      placeholder="First Name"
     />
     <Field
       name="lastName"
       component={RFTextView}
-      placeHolder="Last Name"
+      placeholder="Last Name"
     />
     <Field
       name="email"
       component={RFTextView}
-      placeHolder="Last Name"
+      placeholder="Last Name"
       type="email"
     />
     <Field
       name="phone"
       component={RFTextView}
-      placeHolder="phone"
+      placeholder="phone"
     />
     <Field
       name="description"
       component={RFTextView}
-      placeHolder="description"
+      placeholder="description"
       multiline = {true}
       numberOfLines = {4}
     />

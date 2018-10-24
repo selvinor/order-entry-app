@@ -18,6 +18,9 @@ class OrderForm extends Component {
 
     console.log(`firstname: ${firstName}`);
     console.log(`lastName: ${lastName}`);
+    console.log(`email: ${email}`);
+    console.log(`phone: ${phone}`);
+    console.log(`description: ${description}`);
   reset();
   }
 
