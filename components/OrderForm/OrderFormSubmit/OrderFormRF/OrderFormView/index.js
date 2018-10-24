@@ -4,8 +4,8 @@ import { Button, Text, View } from 'react-native';
 
 import { connect } from 'react-redux';
 import { Field, reset } from 'redux-form';
-import RFTextView from '../../../../RFTextInput';
 import styles from './styles';
+import RFTextInput from '../../../../RFTextInput';
 
 const OrderFormView = ({ 
   handleSubmit,   
@@ -17,30 +17,44 @@ const OrderFormView = ({
   <View>
     <Field
       name="firstName"
-      component={RFTextView}
+      component={RFTextInput}
       disabled={submitting}
       placeholder="First Name"
     />
     <Field
       name="lastName"
-      component={RFTextView}
+      component={RFTextInput}
       placeholder="Last Name"
     />
     <Field
       name="email"
-      component={RFTextView}
-      placeholder="Last Name"
+      component={RFTextInput}
+      placeholder="email"
       type="email"
     />
     <Field
       name="phone"
-      component={RFTextView}
+      component={RFTextInput}
       placeholder="phone"
     />
     <Field
       name="description"
-      component={RFTextView}
+      component={RFTextInput}
       placeholder="description"
+      multiline = {true}
+      numberOfLines = {4}
+    />
+      <Field
+      name="giftMessage"
+      component={RFTextInput}
+      placeholder="Gift Message"
+      multiline = {true}
+      numberOfLines = {4}
+    />
+      <Field
+      name="price"
+      component={RFTextInput}
+      placeholder="price"
       multiline = {true}
       numberOfLines = {4}
     />

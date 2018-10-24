@@ -7,6 +7,9 @@ const RFTextInput = ({
   input: { onBlur, onChange, onFocus, value },
   meta: { error, touched, valid },
   disabled,
+  placeholder,
+  multiline,
+  numberOfLines,
 }) => ( 
   <View>
     <TextInput
@@ -17,11 +20,16 @@ const RFTextInput = ({
       style={[styles.rootInput, { borderColor: !valid && touched ? 'red' : 'gray' }]}
       editable={!disabled}
       selectTextOnFocus={!disabled}
-      //placeholder={placeholder}
+      placeholder={placeholder}
+      multiline={multiline}
+      numberOfLines={numberOfLines}
       underlineColorAndroid='transparent'
+      autoCapitalize = "none"
       style={[
         styles.rootInput,
         {
+          width: 250,
+          margin: 5,
           color: disabled ? 'gray' : 'black',
           borderColor: !valid && touched ? 'red' : 'gray'
         },
