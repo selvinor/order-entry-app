@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import OrderFormRF from './OrderFormRF';
 import { connect } from 'react-redux';
 import { reset } from 'redux-form';
+import { addOrderSuccess } from '../../../actions';
+//import * as actions from '../../../actions';
 
 const wait = () => new Promise((resolve) => {
   setTimeout(() => {
@@ -10,22 +12,29 @@ const wait = () => new Promise((resolve) => {
 });
 
 class OrderForm extends Component {
-  handleSubmit = async ({ firstName, lastName, email, phone, product, description, message, price }) => {
-//    const { reset } = this.props;
+  handleSubmit = async ({ fullName, lastName, email, phone, product, description, message, price }) => {
+
     await wait();
 
     // throw new Error(); // TEST SUBMISSION ERROR
-console.log('form reducer state this.props.form: ', this.props.form);
-    console.log(`firstname: ${firstName}`);
-    console.log(`lastName: ${lastName}`);
-    console.log(`email: ${email}`);
-    console.log(`phone: ${phone}`);
-    console.log(`product: ${product}`);
-    console.log(`description: ${description}`);
-    console.log(`message: ${message}`);
-    console.log(`price: ${price}`);
+    //console.log('form reducer state this.props.form: ', this.props.form.Order.values);
+    // console.log(`firstname: ${fullName}`);
+    // console.log(`lastName: ${lastName}`);
+    // console.log(`email: ${email}`);
+    // console.log(`phone: ${phone}`);
+    // console.log(`product: ${product}`);
+    // console.log(`description: ${description}`);
+    // console.log(`message: ${message}`);
+    // console.log(`price: ${price}` + '\n');
 
-  reset();
+
+    //console.log('this.props.dispatch: ',this.props.dispatch);
+    this.props.dispatch(addOrderSuccess(this.props.form.Order.values));
+   // console.log('*** this.props.form ***: ', this.props.form);
+    //console.log('*** this.props ***: ', this.props );
+
+
+  () => reset();
   }
 
   render() {
@@ -33,13 +42,16 @@ console.log('form reducer state this.props.form: ', this.props.form);
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => { 
   return ({
     form: state.form,
+    order: state.order
   });
 }
 const mapDispatchToProps = {
-  reset: () => reset('reset'),
+   addOrderSuccess
+   //actions
+//
 };
 
 export default connect(

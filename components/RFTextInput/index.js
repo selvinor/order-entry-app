@@ -29,7 +29,7 @@ const RFTextInput = ({
         styles.rootInput,
         {
           width: 250,
-          margin: 5,
+          margin: 3,
           color: disabled ? 'gray' : 'black',
           borderColor: !valid && touched ? 'red' : 'gray'
         },
@@ -59,7 +59,8 @@ RFTextInput.defaultProps = {
   disabled: false,
 };
 
-export default RFTextInput;
+
+export default (RFTextInput);
 // The RFTextInput component translates the supplied (by Redux Form)
 // input.onChange and input.value properties to the onChangeText and 
 // value properties used by the React Native TextInput component

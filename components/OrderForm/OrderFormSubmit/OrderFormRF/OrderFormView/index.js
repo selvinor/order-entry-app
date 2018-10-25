@@ -14,28 +14,30 @@ const OrderFormView = ({
   submitting,
   valid 
 }) => (
-  <KeyboardAvoidingView >
+  <KeyboardAvoidingView
+  style={styles.container}
+  behavior="padding" 
+  >
     <Field
-      name="firstName"
+      name="fullName"
       component={RFTextInput}
       disabled={submitting}
       placeholder="First Name"
+      style={styles.input}
     />
-    <Field
-      name="lastName"
-      component={RFTextInput}
-      placeholder="Last Name"
-    />
+
     <Field
       name="email"
       component={RFTextInput}
       placeholder="email"
       type="email"
+      style={styles.input}
     />
     <Field
       name="phone"
       component={RFTextInput}
       placeholder="phone"
+      style={styles.input}
     />
     <Field
       name="description"
@@ -43,6 +45,7 @@ const OrderFormView = ({
       placeholder="description"
       multiline = {true}
       numberOfLines = {4}
+      style={styles.input}
     />
       <Field
       name="giftMessage"
@@ -50,6 +53,7 @@ const OrderFormView = ({
       placeholder="Gift Message"
       multiline = {true}
       numberOfLines = {4}
+      style={styles.input}
     />
       <Field
       name="price"
@@ -57,6 +61,7 @@ const OrderFormView = ({
       placeholder="price"
       multiline = {true}
       numberOfLines = {4}
+      style={styles.input}
     />
     {!submitting && submitFailed && <Text style={styles.rootFailed}>Submit Failed</Text>}
     {!submitting && submitSucceeded && <Text style={styles.rootSucceeded}>Submit Succeeded</Text>}
@@ -65,6 +70,13 @@ const OrderFormView = ({
       onPress={handleSubmit}
       title="Submit Order"
     />
+    <Button
+      title="Back to home"
+      onPress={() =>
+        this.props.navigation.navigate('Home')
+      }
+    />
+    <View style={{ height: 95 }} />
   </KeyboardAvoidingView >    
 ); 
 
