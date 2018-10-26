@@ -33,7 +33,7 @@ export const orderReducer = (state=initialState, action) => {
   // }); 
 
     case 'ADD_ORDER_SUCCESS':
-    console.log('Processing order reducer. action.newOrder: ', action.newOrder);
+    console.log('************ order reducer. action.newOrder: ', action.newOrder);
     return Object.assign({}, state, {
       orders: [...state.orders, action.newOrder]
     });

@@ -5,7 +5,6 @@ class HomeScreen extends React.Component {
     title: 'Welcome',
   };
   render() {
-    console.log('this.props.navigation: ', this.props.navigation);
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>

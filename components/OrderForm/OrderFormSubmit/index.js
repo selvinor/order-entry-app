@@ -8,7 +8,7 @@ import { addOrderSuccess } from '../../../actions';
 const wait = () => new Promise((resolve) => {
   setTimeout(() => {
     resolve();
-  }, 3000);
+  }, 2000);
 });
 
 class OrderForm extends Component {
@@ -16,22 +16,23 @@ class OrderForm extends Component {
 
     await wait();
 
-    throw new Error(); // TEST SUBMISSION ERROR
-    console.log('form reducer state this.props.form: ', this.props.form.Order.values);
-    console.log(`firstname: ${fullName}`);
-    console.log(`lastName: ${lastName}`);
-    console.log(`email: ${email}`);
-    console.log(`phone: ${phone}`);
-    console.log(`product: ${product}`);
-    console.log(`description: ${description}`);
-    console.log(`message: ${message}`);
-    console.log(`price: ${price}` + '\n');
+    // throw new Error(); // TEST SUBMISSION ERROR
+    console.log('form reducer state this.props.form: ', this.props.form);
+    // console.log(`firstname: ${fullName}`);
+    // console.log(`lastName: ${lastName}`);
+    // console.log(`email: ${email}`);
+    // console.log(`phone: ${phone}`);
+    // console.log(`product: ${product}`);
+    // console.log(`description: ${description}`);
+    // console.log(`message: ${message}`);
+    // console.log(`price: ${price}` + '\n');
 
 
-    console.log('this.props.dispatch: ',this.props.dispatch);
+    // console.log('Order Form Submit:this.props: ',this.props);
+    // console.log('Order Form Submit:this.props.dispatch: ',this.props.dispatch);
     this.props.dispatch(addOrderSuccess(this.props.form.Order.values));
-   console.log('*** this.props.form ***: ', this.props.form);
-    console.log('*** this.props ***: ', this.props );
+   // console.log('*** this.props.form ***: ', this.props.form);
+    console.log('*** this.props.order.orders***: ', this.props.order.orders );
 
 
   () => reset();
@@ -48,15 +49,15 @@ const mapStateToProps = state => {
     order: state.order
   });
 }
-const mapDispatchToProps = {
-   addOrderSuccess
-   //actions
-//
-};
+// const mapDispatchToProps = dispatch => {
+//    addOrderSuccess
+//    //actions
+// //
+// };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
+  //mapDispatchToProps
 )(OrderForm);
 
 // This outer-most component is responsible for supplying a function 

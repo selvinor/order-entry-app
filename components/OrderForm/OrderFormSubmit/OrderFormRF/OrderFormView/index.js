@@ -87,13 +87,13 @@ OrderFormView.defaultProps = {
   submitting: false,
 };
 const mapStateToProps = () => ({});
-const mapDispatchToProps = {
-  reset: () => reset('reset'),
-};
+// const mapDispatchToProps = {
+//   reset: () => reset('reset'),
+// };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
+  // mapDispatchToProps
 )(OrderFormView);
 //this inner component is responsible for the form’s view
 //this component is used with Redux Form and requires a handleSubmit function property

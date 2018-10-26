@@ -28,14 +28,15 @@
 // export default connect(OrderFormSubmit);
 
 import React from 'react';
-// import { connect } from 'react-redux';
+import OrderFormSubmit from './OrderFormSubmit';
 import { Button, Text, View, StyleSheet } from 'react-native';
-class OrderScreen extends React.Component {
+class OrderForm extends React.Component {
   static navigationOptions = {
     title: 'Welcome',
   };
   render() {
-    console.log('this.props.navigation: ', this.props.navigation);
+    console.log('this.props: ',this.props);
+    console.log('this.props.NNavigation: ', this.props.navigation);
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
@@ -54,4 +55,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-export default OrderScreen;
+
+export default (OrderForm, OrderFormSubmit);
