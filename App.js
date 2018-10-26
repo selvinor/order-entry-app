@@ -1,15 +1,17 @@
 import React from 'react';
-import {  Button, StyleSheet,  View, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStackNavigator } from 'react-navigation';
 import HomeScreen from './components/HomeScreen'
 import OrderForm from './components/OrderForm'
+import OrderList from './components/OrderList'
 import store from './store';
 
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
     OrderForm: OrderForm,
+    OrderList: OrderList
   },
   {
     initialRouteName: 'Home',

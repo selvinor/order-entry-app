@@ -9,13 +9,9 @@ const styles = StyleSheet.create({
     color: 'green',
     textAlign: 'center',
   },
-  container: {
-    paddingTop: 23
- },
- input: {
-    margin: 15,
+  rootInput: {
     height: 40,
-    width:150,
+    width:250,
     borderColor: '#7a42f4',
     borderWidth: 1
  },
@@ -27,7 +23,27 @@ const styles = StyleSheet.create({
  },
  submitButtonText:{
     color: 'white'
- }
+ },
+  container: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    
+},
+  text: {
+    textAlign: 'center',
+    fontSize: 30,
+    padding: 40,
+},
+  keyboardAvoidContainer: {
+    flex: 1,
+},
+
+header: {
+  fontSize: 30,
+}
+
 });
 
 export default styles;

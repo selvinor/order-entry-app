@@ -1,38 +1,10 @@
-// import React from 'react';
-// import { connect } from 'react-redux';
-// import OrderFormSubmit from './OrderFormSubmit';
-// //import store from '../../store';
-// class OrderForm extends React.Component {
-//   static navigationOptions = {
-//     title: 'New Order',
-//   };
-//   render() {
-//     console.log('this.props.navigation: ', this.props.navigation);
-//     const { navigate } = this.props.navigation;
-//     return (
-//       <View style={styles.container}>
-//         <Button title="Order" onPress={() => navigate('OrderForm')}/>     
-//       </View>
-//     );
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
-// export default connect(OrderFormSubmit);
-
 import React from 'react';
 import OrderFormSubmit from './OrderFormSubmit';
-import { Button, Text, View, StyleSheet } from 'react-native';
+import { Button,  View, StyleSheet } from 'react-native';
+
 class OrderForm extends React.Component {
   static navigationOptions = {
-    title: 'Welcome',
+    title: 'New Order',
   };
   render() {
     console.log('this.props: ',this.props);
@@ -40,8 +12,9 @@ class OrderForm extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-      <Text> Order Page</Text>
-        <Button title="Home" onPress={() => navigate('Home')}/>     
+        <OrderFormSubmit />
+          <Button  title="Home" onPress={() => navigate('Home')}/> 
+          <Button  title="Order List" onPress={() => navigate('OrderList')} />    
       </View>
     );
   }
@@ -56,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default (OrderForm, OrderFormSubmit);
+export default (OrderForm);

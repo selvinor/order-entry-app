@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 import React from 'react';
-import { Button, Text, View, KeyboardAvoidingView } from 'react-native';
+import {TextInput, Image, SafeAreaView, ScrollView, Button, Text, View, KeyboardAvoidingView } from 'react-native';
 
 import { connect } from 'react-redux';
 import { Field, reset } from 'redux-form';
@@ -14,15 +14,20 @@ const OrderFormView = ({
   submitting,
   valid 
 }) => (
-  <KeyboardAvoidingView
-  style={styles.container}
-  behavior="padding" 
-  >
+
+
+
+    
+<SafeAreaView style={styles.container}>
+   <KeyboardAvoidingView style={styles.keyboardAvoidContainer} behavior="padding">
+     <ScrollView style={{flex: 1}}>
+     <View style={{height: 625}} >
+     <Image style={{width:220, height:220, marginLeft:10}} source={require('../../../../../assets/tulip.png')} />  
     <Field
       name="fullName"
       component={RFTextInput}
       disabled={submitting}
-      placeholder="First Name"
+      placeholder="Customer Name"
       style={styles.input}
     />
 
@@ -46,6 +51,7 @@ const OrderFormView = ({
       multiline = {true}
       numberOfLines = {4}
       style={styles.input}
+      type="textarea"
     />
       <Field
       name="giftMessage"
@@ -69,9 +75,14 @@ const OrderFormView = ({
       disabled={!valid || submitting}
       onPress={handleSubmit}
       title="Submit Order"
-    />
-    <View style={{ height: 95 }} />
-  </KeyboardAvoidingView >    
+    />        
+  </View>
+      </ScrollView>
+
+    </KeyboardAvoidingView>
+ </SafeAreaView>
+
+
 ); 
 
 OrderFormView.propTypes = {
@@ -86,6 +97,7 @@ OrderFormView.propTypes = {
 OrderFormView.defaultProps = {
   submitting: false,
 };
+
 const mapStateToProps = () => ({});
 // const mapDispatchToProps = {
 //   reset: () => reset('reset'),
