@@ -1,21 +1,26 @@
 import React from 'react';
-import {  StyleSheet,  View, Text } from 'react-native';
+import {  Button, StyleSheet,  View, Text } from 'react-native';
 import { Provider } from 'react-redux';
-import OrderForm from './components/OrderForm';
-import Home from './components/Home';
+import { createStackNavigator } from 'react-navigation';
+import HomeScreen from './components/HomeScreen'
+import OrderForm from './components/OrderForm'
 import store from './store';
-import AppNavigator from './components/AppNavigator';
+
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    OrderForm: OrderForm,
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
 
 class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <View style={styles.container}>
-        <OrderForm />
-        <Home />  
-        
-          <AppNavigator />
-        </View>
+        <RootStack />
       </Provider>
     );
   }
@@ -24,7 +29,7 @@ class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fc0000',
     alignItems: 'center',
     justifyContent: 'center',
   },

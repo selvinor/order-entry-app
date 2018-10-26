@@ -70,12 +70,6 @@ const OrderFormView = ({
       onPress={handleSubmit}
       title="Submit Order"
     />
-    <Button
-      title="Back to home"
-      onPress={() =>
-        this.props.navigation.navigate('Home')
-      }
-    />
     <View style={{ height: 95 }} />
   </KeyboardAvoidingView >    
 ); 
