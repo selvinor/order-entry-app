@@ -28,7 +28,7 @@ ToDos:
 * Integrate Square POS API for checkout and payment.
 
 ## Screenshots :camera:
-| <img alt="Intro" src="https://github.com/selvinor/order-entry-app/blob/master/screenshots/home.jpg" width="25%">                                <img alt="Intro" src="https://github.com/selvinor/order-entry-app/blob/master/screenshots/list.jpg" width="25%">                                <img alt="Intro" src="https://github.com/selvinor/order-entry-app/blob/master/screenshots/list.jpg" width="25%"> |
+| <img alt="Intro" src="https://github.com/selvinor/order-entry-app/blob/master/screenshots/home.jpg" width="25%">                                <img alt="Intro" src="https://github.com/selvinor/order-entry-app/blob/master/screenshots/order.jpg" width="25%">                                <img alt="Intro" src="https://github.com/selvinor/order-entry-app/blob/master/screenshots/list.jpg" width="25%"> |
 |:---:|
 |                          Home             |         Order Form      |        Order List    
 
