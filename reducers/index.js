@@ -12,11 +12,11 @@ export const orderReducer = (state=initialState, action) => {
   //     hasErrored: null
   //   }); 
 
-  //   case 'FETCH_ORDER_SUCCESS':
-  //   console.log('order success action.orders: ', action.orders);
-  //     return Object.assign({}, state, {        
-  //       orders: action.orders
-  //   });
+    case 'FETCH_ORDER_SUCCESS':
+    console.log('fetch order success action.orders: ', action.orders);
+      return Object.assign({}, state, {        
+        orders: action.orders
+    });
 
   //   case 'ORDERS_HAS_ERRORED':
   //     return Object.assign({}, state, {

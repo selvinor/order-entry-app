@@ -21,10 +21,10 @@ const OrderFormView = ({
 <SafeAreaView style={styles.container}>
    <KeyboardAvoidingView style={styles.keyboardAvoidContainer} behavior="padding">
      <ScrollView style={{flex: 1}}>
-     <View style={{height: 625}} >
+     <View style={{height: 625,   alignItems: 'center', justifyContent: 'center'}} >
      <Image style={{width:160, height:160, marginLeft:10}} source={require('../../../../../assets/tulip.png')} />  
     <Field
-      name="fullName"
+      name="customerName"
       component={RFTextInput}
       disabled={submitting}
       placeholder="Customer Name"
@@ -54,7 +54,7 @@ const OrderFormView = ({
       type="textarea"
     />
       <Field
-      name="giftMessage"
+      name="message"
       component={RFTextInput}
       placeholder="Gift Message"
       multiline = {true}

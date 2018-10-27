@@ -8,20 +8,25 @@ class HomeScreen extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-      <ImageBackground          style={{
-          backgroundColor: '#ccc',
-          flex: 1,
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }} source={require('../assets/tulip-master.jpg')} >   
-        <Text style={styles.text}>Welcome!</Text>
-        <Button  style={styles.button} title="Add some orders!" onPress={() => navigate('OrderForm')}/>     
-        <Button  style={styles.button} title="Home" onPress={() => navigate('Home')}/> 
-        <Button  style={styles.button} title="Order List" onPress={() => navigate('OrderList')} /> 
-      </ImageBackground>
+        <ImageBackground          style={{
+            backgroundColor: '#ccc',
+            flex: 1,
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }} source={require('../assets/splash.png')} >   
+          <Text style={styles.text}>Welcome!</Text>
+          <View style={{flexDirection: 'row'}}>
+            <View style={{flex:1 , marginRight:10}} >
+              <Button title="New Order" onPress={() => navigate('OrderForm')}></Button>
+            </View>
+            <View style={{flex:1}} >
+              <Button title="Order List" onPress={() => navigate('OrderList')}></Button>
+            </View>
+          </View>              
+        </ImageBackground>
       </View>
     );
   }

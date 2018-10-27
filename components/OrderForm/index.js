@@ -13,9 +13,15 @@ class OrderForm extends React.Component {
     return (
       <View style={styles.container}>
         <OrderFormSubmit />
-          <Button  title="Home" onPress={() => navigate('Home')}/> 
-          <Button  title="Order List" onPress={() => navigate('OrderList')} />    
-      </View>
+        <View style={{flexDirection: 'row'}}>
+          <View style={{flex:1 , marginRight:10}} >
+            <Button title="Order List" onPress={() => navigate('OrderList')}></Button>
+          </View>
+          <View style={{flex:1}} >
+            <Button title="Home" onPress={() => navigate('Home')}></Button>
+          </View>
+        </View> 
+      </View>     
     );
   }
 }

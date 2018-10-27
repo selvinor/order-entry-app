@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import OrderFormRF from './OrderFormRF';
 import { connect } from 'react-redux';
 import { reset, SubmissionError } from 'redux-form';
-import { addOrderSuccess } from '../../../actions';
-import {REACT_APP_BASE_URL} from '../config';
+import { addOrder } from '../../../actions';
+import {REACT_APP_BASE_URL} from '../../../config';
 
 
 // const wait = () => new Promise((resolve) => {
@@ -13,10 +13,11 @@ import {REACT_APP_BASE_URL} from '../config';
 // });
 
 class OrderForm extends Component {
-//  handleSubmit = async ({ fullName, lastName, email, phone, product, description, message, price }) => {
+//  handleSubmit = async ({ customerName, lastName, email, phone, product, description, message, price }) => {
 
 //    await wait();
 handleSubmit(values) {
+  console.log('Here are the values: ', values);
     // values['productCode'] = this.props.currentProductCode;
     // if (this.props.currentProductCode === '1') {
     //   values['productName'] = "Designer's Bouquet";
@@ -29,14 +30,16 @@ handleSubmit(values) {
     //     }
     //   }
     // }
-    return fetch(`${REACT_APP_BASE_URL}/orders`, {
+    return fetch('http:192.168.1.5:19000/api/orders', {
       method:'POST',
       body: JSON.stringify(values),
       headers: {
-        'Content-Type': 'application/json'
-    }
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
   })
     .then(res => {
+      console.log('REACHED HERE. res: ', res);
       if (!res.ok) {
         if (
           res.headers.has('content-type') &&
@@ -54,7 +57,7 @@ handleSubmit(values) {
         });
       }      
         // console.log('*** this.props.form ***: ', this.props.form);
-      this.props.dispatch(addOrderSuccess(this.props.form.Order.values));
+      this.props.dispatch(addOrder(this.props.form.Order.values));
       console.log('*** this.props.order.orders***: ', this.props.order.orders );
       return res.json();
     })
@@ -80,7 +83,7 @@ handleSubmit(values) {
 
     // throw new Error(); // TEST SUBMISSION ERROR
     // console.log('form reducer state this.props.form: ', this.props.form);
-    // console.log(`firstname: ${fullName}`);
+    // console.log(`firstname: ${customerName}`);
     // console.log(`lastName: ${lastName}`);
     // console.log(`email: ${email}`);
     // console.log(`phone: ${phone}`);
