@@ -5,9 +5,19 @@ Client for Blooms Order App
 ## Summary
 The Blooms Order App provides a way for the florist to capture the details of walk-in and phone orders using a tablet or phone. 
 The current system of writing orders on a paper form presents unacceptable problems:
-* Lost Orders * No single source of truth on pending orders * Lack of electronic audit trail *Lack of synchronization with online orders * Hard to read handwriting  * essy to update orders
+* Lost Orders 
+* No single source of truth on pending orders 
+* Lack of electronic audit trail 
+*Lack of synchronization with online orders 
+* Hard to read handwriting  
+* easy to update orders
+
 The Order app:
-* Stores orders in a database * Can integrate with existing systems to synch orders from all sources * Easy to see, can be displayed on a large screen  * Offers potential to easily update orders and set status * Potentially allows setting order priority via drag and drop
+* Stores orders in a database 
+* Can integrate with existing systems to synch orders from all sources 
+* Easy to see, can be displayed on a large screen  
+* Offers potential to easily update orders and set status 
+* Potentially allows setting order priority via drag and drop
 
 ToDos:
 * Order Detail screen to display and provide order edit capability 
