@@ -1,6 +1,7 @@
 # order-entry-app
-Client for Blooms Order App
-Server forr Blooms Order App - https://github.com/selvinor/orders-server
+* Client for Blooms Order App
+* Server for Blooms Order App - https://github.com/selvinor/orders-server
+
 # Blooms Order App
 
 ## Summary
