@@ -3,7 +3,7 @@ Client for Blooms Order App
 # Blooms Order App
 
 ## Summary
-The Blooms Order App provides a way for the florist to capture the details of walk-in and phone orders in a digital format. 
+The Blooms Order App provides a way for the florist to capture the details of walk-in and phone orders using a tablet or phone. 
 The current system of writing orders on a paper form presents unacceptable problems:
 * Lost Orders * No single source of truth on pending orders * Lack of electronic audit trail *Lack of synchronization with online orders * Hard to read handwriting  * essy to update orders
 The Order app:
