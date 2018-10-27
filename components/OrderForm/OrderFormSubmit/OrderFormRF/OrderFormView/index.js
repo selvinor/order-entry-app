@@ -22,7 +22,7 @@ const OrderFormView = ({
    <KeyboardAvoidingView style={styles.keyboardAvoidContainer} behavior="padding">
      <ScrollView style={{flex: 1}}>
      <View style={{height: 625}} >
-     <Image style={{width:220, height:220, marginLeft:10}} source={require('../../../../../assets/tulip.png')} />  
+     <Image style={{width:160, height:160, marginLeft:10}} source={require('../../../../../assets/tulip.png')} />  
     <Field
       name="fullName"
       component={RFTextInput}

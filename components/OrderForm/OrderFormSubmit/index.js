@@ -1,23 +1,85 @@
 import React, { Component } from 'react';
 import OrderFormRF from './OrderFormRF';
 import { connect } from 'react-redux';
-import { reset } from 'redux-form';
+import { reset, SubmissionError } from 'redux-form';
 import { addOrderSuccess } from '../../../actions';
-//import * as actions from '../../../actions';
+import {REACT_APP_BASE_URL} from '../config';
 
-const wait = () => new Promise((resolve) => {
-  setTimeout(() => {
-    resolve();
-  }, 2000);
-});
+
+// const wait = () => new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve();
+//   }, 2000);
+// });
 
 class OrderForm extends Component {
-  handleSubmit = async ({ fullName, lastName, email, phone, product, description, message, price }) => {
+//  handleSubmit = async ({ fullName, lastName, email, phone, product, description, message, price }) => {
 
-    await wait();
+//    await wait();
+handleSubmit(values) {
+    // values['productCode'] = this.props.currentProductCode;
+    // if (this.props.currentProductCode === '1') {
+    //   values['productName'] = "Designer's Bouquet";
+    // } else {
+    //   if (this.props.currentProductCode === '2') {
+    //     values['productName'] = "Designer's Choice Arrangement";
+    //   } else {
+    //     if (this.props.currentProductCode === '3') {
+    //       values['productName'] = "Designer's Lobby Arrangement";
+    //     }
+    //   }
+    // }
+    return fetch(`${REACT_APP_BASE_URL}/orders`, {
+      method:'POST',
+      body: JSON.stringify(values),
+      headers: {
+        'Content-Type': 'application/json'
+    }
+  })
+    .then(res => {
+      if (!res.ok) {
+        if (
+          res.headers.has('content-type') &&
+          res.headers
+            .get('content-type')
+            .startsWith('application/json')
+        ) {
+            // It's a nice JSON error returned by us, so decode it
+            return res.json().then(err => Promise.reject(err));
+        }
+        // It's a less informative error returned by express
+        return Promise.reject({
+          code: res.status,
+          message: res.statusText
+        });
+      }      
+        // console.log('*** this.props.form ***: ', this.props.form);
+      this.props.dispatch(addOrderSuccess(this.props.form.Order.values));
+      console.log('*** this.props.order.orders***: ', this.props.order.orders );
+      return res.json();
+    })
+    .then((values) => {
+      console.log('values: ', values)})
+    .catch(err => {
+      const {reason, message, location} = err;
+      if (reason === 'ValidationError') {
+        // Convert ValidationErrors into SubmissionErrors for Redux Form
+        return Promise.reject(
+            new SubmissionError({
+                [location]: message
+            })
+        );
+      }
+      return Promise.reject(
+        new SubmissionError({
+            _error: 'Error submitting message'
+        })
+      );
+    });
+  
 
     // throw new Error(); // TEST SUBMISSION ERROR
-    console.log('form reducer state this.props.form: ', this.props.form);
+    // console.log('form reducer state this.props.form: ', this.props.form);
     // console.log(`firstname: ${fullName}`);
     // console.log(`lastName: ${lastName}`);
     // console.log(`email: ${email}`);
@@ -30,12 +92,10 @@ class OrderForm extends Component {
 
     // console.log('Order Form Submit:this.props: ',this.props);
     // console.log('Order Form Submit:this.props.dispatch: ',this.props.dispatch);
-    this.props.dispatch(addOrderSuccess(this.props.form.Order.values));
-   // console.log('*** this.props.form ***: ', this.props.form);
-    console.log('*** this.props.order.orders***: ', this.props.order.orders );
 
 
-  () => reset();
+
+//  () => reset();
   }
 
   render() {
